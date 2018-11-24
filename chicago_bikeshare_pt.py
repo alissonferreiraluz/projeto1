@@ -7,36 +7,29 @@ import matplotlib.pyplot as plt
 # Vamos ler os dados como uma lista de dicionários
 print("Lendo o documento...")
 with open("chicago.csv", "r") as file_read:
-    #reader = csv.reader(file_read)
     dict_reader = csv.DictReader(file_read)
-    
     data_list = list(dict_reader)
-    #data_list_dict = list(dict_reader)
 print("Ok!")
 
 # Vamos verificar quantas linhas nós temos
 print("Número de linhas:")
 print(len(data_list))
-#print(len(data_list_dict))
+
+# Imprimindo as chaves do dicionário
+print("Cabeçalho dos dados: ")
+print(','.join('{}'.format(key) for key in data_list[0].keys()))
+# É o cabeçalho dos dados, para que possamos identificar as colunas
 
 # Imprimindo a primeira linha de data_list, ela contem alguns dados
-print("Linha 0: ")
-print(','.join('{}'.format(valor) for valor in data_list[0].keys()))
-#print(data_list_dict[0])
-
-# Imprimindo a segunda linha de data_list, ela contem alguns dados
 print("Linha 1: ")
-print(','.join('{}'.format(valor) for valor in data_list[0].values()))
-#print(data_list_dict[1])
+print(','.join('{}'.format(value) for value in data_list[0].values()))
 
 input("Aperte Enter para continuar...")
 # TAREFA 1
 # TODO: Imprima as primeiras 20 linhas usando um loop para identificar os dados.
 print("\n\nTAREFA 1: Imprimindo as primeiras 20 amostras")
-for indice in range(3):
-    #for valores in data_list[indice].values():
-        #print(valores)
-    print(','.join('{}'.format(valor) for valor in data_list[indice].values()))
+for index in range(20):
+    print(','.join('{}'.format(value) for value in data_list[index].values()))
 
 # Vamos mudar o data_list para remover o cabeçalho dele.
 data_list = data_list[1:]
