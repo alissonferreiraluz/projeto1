@@ -21,12 +21,12 @@ print(len(data_list))
 
 # Imprimindo a primeira linha de data_list, ela contem alguns dados
 print("Linha 0: ")
-print(data_list[0])
+print(','.join('{}'.format(valor) for valor in data_list[0].keys()))
 #print(data_list_dict[0])
 
 # Imprimindo a segunda linha de data_list, ela contem alguns dados
 print("Linha 1: ")
-print(data_list[1])
+print(','.join('{}'.format(valor) for valor in data_list[0].values()))
 #print(data_list_dict[1])
 
 input("Aperte Enter para continuar...")
