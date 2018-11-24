@@ -4,10 +4,10 @@
 import csv
 import matplotlib.pyplot as plt
 
-# Vamos ler os dados como uma lista
+# Vamos ler os dados como uma lista de dicionários
 print("Lendo o documento...")
 with open("chicago.csv", "r") as file_read:
-    reader = csv.reader(file_read)
+    reader = csv.DictReader(file_read)
     data_list = list(reader)
 print("Ok!")
 
@@ -15,12 +15,11 @@ print("Ok!")
 print("Número de linhas:")
 print(len(data_list))
 
-# Imprimindo a primeira linha de data_list para verificar se funcionou.
+# Imprimindo a primeira linha de data_list, ela contem alguns dados
 print("Linha 0: ")
 print(data_list[0])
-# É o cabeçalho dos dados, para que possamos identificar as colunas.
 
-# Imprimindo a segunda linha de data_list, ela deveria conter alguns dados
+# Imprimindo a segunda linha de data_list, ela contem alguns dados
 print("Linha 1: ")
 print(data_list[1])
 
@@ -28,6 +27,17 @@ input("Aperte Enter para continuar...")
 # TAREFA 1
 # TODO: Imprima as primeiras 20 linhas usando um loop para identificar os dados.
 print("\n\nTAREFA 1: Imprimindo as primeiras 20 amostras")
+for indice in range(20):
+    #items = data_list[indice].items()
+    j = 0
+    frase = ""
+    for key,value in data_list[indice].items():
+        print(indice)
+        print(j)
+        j += 1
+        frase += value
+
+    print(frase)
 
 # Vamos mudar o data_list para remover o cabeçalho dele.
 data_list = data_list[1:]
@@ -189,7 +199,7 @@ input("Aperte Enter para continuar...")
 # TAREFA 11
 # Volte e tenha certeza que você documentou suas funções. Explique os parâmetros de entrada, a saída, e o que a função faz. Exemplo:
 # def new_function(param1: int, param2: str) -> list:
-      """
+"""
       Função de exemplo com anotações.
       Argumentos:
           param1: O primeiro parâmetro.
