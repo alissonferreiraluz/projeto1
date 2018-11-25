@@ -49,6 +49,8 @@ def column_to_list(data, index):
 
 # Vamos checar com os gêneros se isso está funcionando (apenas para os primeiros 20)
 print("\nTAREFA 3: Imprimindo a lista de gêneros das primeiras 20 amostras")
+lista = list(data_list[1].values())
+print(lista[-2])
 print(column_to_list(data_list, -2)[:20])
 
 # ------------ NÃO MUDE NENHUM CÓDIGO AQUI ------------
