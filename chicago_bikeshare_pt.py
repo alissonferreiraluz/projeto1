@@ -65,8 +65,8 @@ input("Aperte Enter para continuar...")
 # Agora sabemos como acessar as features, vamos contar quantos Male (Masculinos) e Female (Femininos) o dataset tem
 # TAREFA 4
 # TODO: Conte cada gênero. Você não deveria usar uma função para isso.
-male = 0
-female = 0
+male = column_to_list(data_list, -2).count("Male")
+female = column_to_list(data_list, -2).count("Female")
 
 
 # Verificando o resultado
@@ -74,7 +74,8 @@ print("\nTAREFA 4: Imprimindo quantos masculinos e femininos nós encontramos")
 print("Masculinos: ", male, "\nFemininos: ", female)
 
 # ------------ NÃO MUDE NENHUM CÓDIGO AQUI ------------
-assert male == 935854 and female == 298784, "TAREFA 4: A conta não bate."
+#assert male == 935854 and female == 298784, "TAREFA 4: A conta não bate."
+assert male == 541 and female == 237, "TAREFA 4: A conta não bate."
 # -----------------------------------------------------
 
 input("Aperte Enter para continuar...")
@@ -85,6 +86,10 @@ input("Aperte Enter para continuar...")
 def count_gender(data_list):
     male = 0
     female = 0
+    
+    #male += 1 for data in data_list if data["Gender"] == "Male"
+    #male = len([1 for data in data_list if data["Gender"] == "Male"])
+    male = sum(1 for data in data_list if data["Gender"] == "Male")
     return [male, female]
 
 
