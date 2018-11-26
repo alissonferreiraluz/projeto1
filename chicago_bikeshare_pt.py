@@ -65,8 +65,8 @@ input("Aperte Enter para continuar...")
 # Agora sabemos como acessar as features, vamos contar quantos Male (Masculinos) e Female (Femininos) o dataset tem
 # TAREFA 4
 # TODO: Conte cada gênero. Você não deveria usar uma função para isso.
-male = column_to_list(data_list, -2).count("Male")
-female = column_to_list(data_list, -2).count("Female")
+male = sum(1 for data in column_to_list(data_list, -2) if data == "Male")
+female = sum(1 for data in column_to_list(data_list, -2) if data == "Female")
 
 
 # Verificando o resultado
@@ -84,12 +84,8 @@ input("Aperte Enter para continuar...")
 # TODO: Crie uma função para contar os gêneros. Retorne uma lista.
 # Isso deveria retornar uma lista com [count_male, count_female] (exemplo: [10, 15] significa 10 Masculinos, 15 Femininos)
 def count_gender(data_list):
-    male = 0
-    female = 0
-    
-    #male += 1 for data in data_list if data["Gender"] == "Male"
-    #male = len([1 for data in data_list if data["Gender"] == "Male"])
     male = sum(1 for data in data_list if data["Gender"] == "Male")
+    female = sum(1 for data in data_list if data["Gender"] == "Female")
     return [male, female]
 
 
@@ -99,7 +95,8 @@ print(count_gender(data_list))
 # ------------ NÃO MUDE NENHUM CÓDIGO AQUI ------------
 assert type(count_gender(data_list)) is list, "TAREFA 5: Tipo incorreto retornado. Deveria retornar uma lista."
 assert len(count_gender(data_list)) == 2, "TAREFA 5: Tamanho incorreto retornado."
-assert count_gender(data_list)[0] == 935854 and count_gender(data_list)[1] == 298784, "TAREFA 5: Resultado incorreto no retorno!"
+#assert count_gender(data_list)[0] == 935854 and count_gender(data_list)[1] == 298784, "TAREFA 5: Resultado incorreto no retorno!"
+assert count_gender(data_list)[0] == 541 and count_gender(data_list)[1] == 237, "TAREFA 5: Resultado incorreto no retorno!"
 # -----------------------------------------------------
 
 input("Aperte Enter para continuar...")
