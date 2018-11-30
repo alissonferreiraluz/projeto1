@@ -138,8 +138,28 @@ plt.show(block=True)
 input("Aperte Enter para continuar...")
 # TAREFA 7
 # TODO: Crie um gráfico similar para user_types. Tenha certeza que a legenda está correta.
-print("\nTAREFA 7: Verifique o gráfico!")
+def count_user_types(data_list,user_types):
+    count_list = []
+    user_types_list = list(user_types)
+    
+    for type in user_types_list:
+        count_type = sum(1 for data in data_list if data["User Type"] == type)
+        count_list.append(count_type)
 
+    return count_list
+
+user_types_list = column_to_list(data_list,-3)
+user_types = set(user_types_list)
+quantity = count_user_types(data_list,user_types)
+y_pos = list(range(len(user_types)))
+plt.bar(y_pos, quantity)
+plt.ylabel('Quantidade')
+plt.xlabel('Tipo')
+plt.xticks(y_pos, user_types)
+plt.title('Quantidade por Tipo')
+plt.show(block=True)
+
+print("\nTAREFA 7: Verifique o gráfico!")
 
 input("Aperte Enter para continuar...")
 # TAREFA 8
